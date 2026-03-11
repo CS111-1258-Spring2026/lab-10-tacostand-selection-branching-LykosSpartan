@@ -2,6 +2,11 @@ public class TacoStand
 {
     /* CONSTANT VARIABLES */
 	public static final String BAR = "----------------------------------------";
+	public static final double STEAK_TACO_PRICE = 2.5;
+	public static final double CHICKEN_TACO_PRICE = 1.75;
+	public static final double BEEF_TONGUE_PRICE = 3.0;
+	public static final double ULTIMATE_TACO = 18.0;
+	//Make the rest for the other menu options
 
 	/* STATIC VARIABLES */
 	private static int numAsada = 0, numPollo = 0, numLengua = 0, numUltimate = 0;
@@ -22,10 +27,10 @@ public class TacoStand
 	public static void printMenu()
 	{
 		System.out.println("Menu options:\n" + TacoStand.BAR);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 1, "Carne Asada (Steak)", 2.5);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 2, "Pollo Asado (Chicken)", 1.75);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 3, "Lengua (Beef Tongue)", 3.0);
-		System.out.printf("%2d. %-21s [$%5.2f]%n", 4, "Ultimate Taco", 18.0);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 1, "Carne Asada (Steak)", STEAK_TACO_PRICE);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 2, "Pollo Asado (Chicken)", CHICKEN_TACO_PRICE);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 3, "Lengua (Beef Tongue)", BEEF_TONGUE_PRICE);
+		System.out.printf("%2d. %-21s [$%5.2f]%n", 4, "Ultimate Taco", ULTIMATE_TACO);
 		System.out.println(TacoStand.BAR);
 	}
 	
@@ -71,8 +76,8 @@ public class TacoStand
 	 */
 	public static boolean orderSupplies(double budget)
 	{
-		//tacos cost 75 cents each in supplies, keeping it simple
-	    int tacosEach = (int)(Math.round(budget / 0.75 / 4));
+		if (budget <= TacoStand.totalFunds){
+			int tacosEach = (int)(Math.round(budget / 0.75 / 4));
 
 	    TacoStand.totalFunds -= budget;
 
@@ -81,7 +86,15 @@ public class TacoStand
 	    TacoStand.numLengua += tacosEach;
 	    TacoStand.numUltimate += tacosEach;
 
-		return true;  //TODO: this is stubbed, replace this line with your actual code!
+
+		return true;
+		}
+		else{
+			return false;
+
+		}
+		//tacos cost 75 cents each in supplies, keeping it simple
+	      //TODO: this is stubbed, replace this line with your actual code! Add an if else statement for the code.
 	}
 
 	/**
@@ -93,6 +106,10 @@ public class TacoStand
 	 */
 	public static void updateTotalFunds(int tacoOption, int numTacos)
 	{
+		TacoStand.totalFunds += tacoOption;
+		TacoStand.totalFunds += numTacos;
+
+
 		//TODO: this is stubbed, replace this line with your actual code!
 	}
 	
@@ -106,7 +123,16 @@ public class TacoStand
 	 * @return boolean representing if specific kind of tacos, for the number in order, are available
 	 */
 	public static boolean areTacosAvailable(int tacoOption, int numTacos)
-	{
+	{ if (tacoOption > numTacos){
+		
+		return true;
+
+	}
+	else {
+
+
+
 		return false; //TODO: this is stubbed, replace this line with your actual code!
+	}
 	}
 }
