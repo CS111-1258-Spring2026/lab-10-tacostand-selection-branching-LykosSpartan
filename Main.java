@@ -34,6 +34,8 @@ public class Main
 		//call takeOrder more times if you'd like! (once everything works once though!)
 
 		System.out.println("--------CART IS CLOSED---------\n\n" + TacoStand.getStatus());
+
+		
 	}
 
 	/**
@@ -69,7 +71,12 @@ public class Main
 		//CALCULATION + OUTPUT SECTION
 		TacoStand.updateTotalFunds(option, numTacosOrdered);
 		Main.printConfirmation(numTacosOrdered);
+		TacoStand.areTacosAvailable(option, numTacosOrdered);
+	
 	}
+
+
+
 
 	/**
 	 * Prints confirmation message that varies based on number of tacos in order
@@ -77,8 +84,30 @@ public class Main
 	 * @param numTacos
 	 */
 	public static void printConfirmation(int numTacos) //TODO: upgrade per documentation
-	{
+	  {if (numTacos == 1){
 		System.out.println("Here you go, buen provecho!");
 		System.out.println("🌮");
-	}
+		
+	  }
+	  else if (numTacos == 2){
+		System.out.println("Here you go, buen provecho!");
+		System.out.println("🌮🌮");
 }
+else if (numTacos == 3){
+		System.out.println("Here you go, buen provecho!");
+		System.out.println("🌮🌮🌮");
+}
+else if (numTacos == 4){
+		System.out.println("Here you go, buen provecho!");
+		System.out.println("🌮🌮🌮🌮");
+}
+else if (numTacos == 5){
+		System.out.println("Here you go, buen provecho!");
+		System.out.println("🌮🌮🌮🌮🌮");
+}
+else if (numTacos > 5){
+		System.out.println("We don't have that many tacos, sorry! Try again :(");
+		
+}
+	  }
+	}

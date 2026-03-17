@@ -123,16 +123,27 @@ public class TacoStand
 	 * @return boolean representing if specific kind of tacos, for the number in order, are available
 	 */
 	public static boolean areTacosAvailable(int tacoOption, int numTacos)
-	{ if (tacoOption > numTacos){
-		
+	{ if (tacoOption == 1 && numTacos <= TacoStand.numAsada){
+		numAsada -= numTacos;
+	
 		return true;
 
 	}
-	else {
-
-
-
-		return false; //TODO: this is stubbed, replace this line with your actual code!
+	else if (tacoOption == 2 && numTacos <= TacoStand.numPollo){
+		numPollo -= numTacos;
+		return true;
+	}
+	else if (tacoOption == 3 && numTacos <= TacoStand.numLengua){
+		numLengua -= numTacos;
+		return true;
+	}
+	else if (tacoOption == 4 && numTacos <= TacoStand.numUltimate){
+		numUltimate -= numTacos;
+		return true;
+	}
+	else{
+		return false;
+	 //TODO: this is stubbed, replace this line with your actual code!
 	}
 	}
 }
