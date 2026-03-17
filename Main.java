@@ -72,6 +72,7 @@ public class Main
 		TacoStand.updateTotalFunds(option, numTacosOrdered);
 		Main.printConfirmation(numTacosOrdered);
 		TacoStand.areTacosAvailable(option, numTacosOrdered);
+		TacoStand.fulfillOrder(option, numTacosOrdered);
 	
 	}
 
@@ -87,23 +88,28 @@ public class Main
 	  {if (numTacos == 1){
 		System.out.println("Here you go, buen provecho!");
 		System.out.println("🌮");
+		System.out.println("");
 		
 	  }
 	  else if (numTacos == 2){
 		System.out.println("Here you go, buen provecho!");
 		System.out.println("🌮🌮");
-}
+		System.out.println("");
+	  }
 else if (numTacos == 3){
 		System.out.println("Here you go, buen provecho!");
 		System.out.println("🌮🌮🌮");
+		System.out.println("");
 }
 else if (numTacos == 4){
 		System.out.println("Here you go, buen provecho!");
 		System.out.println("🌮🌮🌮🌮");
+		System.out.println("");
 }
 else if (numTacos == 5){
 		System.out.println("Here you go, buen provecho!");
 		System.out.println("🌮🌮🌮🌮🌮");
+		System.out.println("");
 }
 else if (numTacos > 5){
 		System.out.println("We don't have that many tacos, sorry! Try again :(");

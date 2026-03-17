@@ -106,9 +106,23 @@ public class TacoStand
 	 */
 	public static void updateTotalFunds(int tacoOption, int numTacos)
 	{
-		TacoStand.totalFunds += tacoOption;
-		TacoStand.totalFunds += numTacos;
+		double price = 0;
 
+    if (tacoOption == 1) {
+        price = STEAK_TACO_PRICE;
+    }
+    else if (tacoOption == 2) {
+        price = CHICKEN_TACO_PRICE;
+    }
+    else if (tacoOption == 3) {
+        price = BEEF_TONGUE_PRICE;
+    }
+    else if (tacoOption == 4) {
+        price = ULTIMATE_TACO;
+    }
+if (numTacos <= 5) {
+    TacoStand.totalFunds += price * numTacos;
+}
 
 		//TODO: this is stubbed, replace this line with your actual code!
 	}
@@ -123,27 +137,33 @@ public class TacoStand
 	 * @return boolean representing if specific kind of tacos, for the number in order, are available
 	 */
 	public static boolean areTacosAvailable(int tacoOption, int numTacos)
-	{ if (tacoOption == 1 && numTacos <= TacoStand.numAsada){
-		numAsada -= numTacos;
-	
-		return true;
+	{ if (tacoOption == 1) return numTacos <= numAsada;
+    if (tacoOption == 2) return numTacos <= numPollo;
+    if (tacoOption == 3) return numTacos <= numLengua;
+    if (tacoOption == 4) return numTacos <= numUltimate;
 
-	}
-	else if (tacoOption == 2 && numTacos <= TacoStand.numPollo){
-		numPollo -= numTacos;
-		return true;
-	}
-	else if (tacoOption == 3 && numTacos <= TacoStand.numLengua){
-		numLengua -= numTacos;
-		return true;
-	}
-	else if (tacoOption == 4 && numTacos <= TacoStand.numUltimate){
-		numUltimate -= numTacos;
-		return true;
-	}
-	else{
-		return false;
+    return false;
 	 //TODO: this is stubbed, replace this line with your actual code!
 	}
-	}
+
+
+
+public static void fulfillOrder(int tacoOption, int numTacos)
+{
+    if (tacoOption == 1 && numTacos <= numAsada) {
+        numAsada -= numTacos;
+    }
+    else if (tacoOption == 2 && numTacos <= numPollo) {
+        numPollo -= numTacos;
+    }
+    else if (tacoOption == 3 && numTacos <= numLengua) {
+        numLengua -= numTacos;
+    }
+    else if (tacoOption == 4 && numTacos <= numUltimate) {
+        numUltimate -= numTacos;
+    }
 }
+}
+
+
+
